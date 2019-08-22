@@ -1,3 +1,5 @@
+from django.conf import settings
+from git import Repo
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
@@ -9,7 +11,9 @@ class LastCommitView(APIView):
     permission_classes = [AllowAny]
 
     def get(self, request, format=None):
+        repo = Repo(settings.GIT_ROOT)
         content = {
-            'text': 'abc123',
+            'commit': repo.head.commit.hexsha,
+            'commit_date': repo.head.commit.committed_datetime.isoformat(timespec='seconds'),
         }
         return Response(content)
