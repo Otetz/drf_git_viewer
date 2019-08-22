@@ -13,6 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import datetime
+
+from django.conf import settings
 from django.conf.urls import url
 from django.urls import include, path
 
@@ -24,3 +27,5 @@ urlpatterns = [
     url(r'^last-commit/', LastCommitView.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
+settings.STARTED = datetime.datetime.utcnow()
