@@ -117,6 +117,6 @@ REST_FRAMEWORK = {
 }
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-GIT_ROOT = '/Users/alexey/Develop/drf_git_viewer'  # TODO: Fix path
+GIT_ROOT = os.path.split(PROJECT_ROOT)[0]
 
 STARTED = None
