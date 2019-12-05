@@ -1,4 +1,4 @@
-Django==2.2.4
+Django==2.2.8
 djangorestframework==3.10.2
 GitPython==3.0.2
 python-dateutil==2.8.0
